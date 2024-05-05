@@ -1,0 +1,14 @@
+{
+  "name": "servicea",
+  "version": "1.0.0",
+  "description": "This is service A",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Tanvir Mahin",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
