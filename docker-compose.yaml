@@ -50,7 +50,7 @@ services:
       - INSTANCE_NAME=2
   servicec1:
     build:
-      context: ./servicea
+      context: ./servicec
       dockerfile: Dockerfile
     container_name: servicec1
 
