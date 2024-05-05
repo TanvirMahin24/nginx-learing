@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.get("*", (req, res) => {
-  res.send("Hello From Service A");
+  res.send("Hello From Service A" + `${process.env.INSTANCE_NAME || "1"}`);
 });
 
 app.listen(port, () => {

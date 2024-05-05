@@ -1,0 +1,70 @@
+version: "3.8"
+
+services:
+  servicea1:
+    build:
+      context: ./servicea
+      dockerfile: Dockerfile
+    container_name: servicea1
+
+    environment:
+      - PORT=5000
+      - INSTANCE_NAME=1
+
+  servicea2:
+    build:
+      context: ./servicea
+      dockerfile: Dockerfile
+    container_name: servicea2
+
+    environment:
+      - PORT=5000
+      - INSTANCE_NAME=2
+  servicea3:
+    build:
+      context: ./servicea
+      dockerfile: Dockerfile
+    container_name: servicea3
+
+    environment:
+      - PORT=5000
+      - INSTANCE_NAME=3
+  serviceb1:
+    build:
+      context: ./serviceb
+      dockerfile: Dockerfile
+    container_name: serviceb1
+
+    environment:
+      - PORT=5000
+      - INSTANCE_NAME=1
+
+  serviceb2:
+    build:
+      context: ./serviceb
+      dockerfile: Dockerfile
+    container_name: serviceb2
+
+    environment:
+      - PORT=5000
+      - INSTANCE_NAME=2
+  servicec1:
+    build:
+      context: ./servicea
+      dockerfile: Dockerfile
+    container_name: servicec1
+
+    environment:
+      - PORT=5000
+      - INSTANCE_NAME=1
+  nginx:
+    build: ./nginx
+    ports:
+      - "3000:80"
+    depends_on:
+      - servicea1
+      - servicea2
+      - servicea3
+      - serviceb1
+      - serviceb2
+      - servicec1
